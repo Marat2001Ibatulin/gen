@@ -5,8 +5,12 @@ def flat_generator(list_of_lists):
     cursor = 0
     inner_cursor = 0
     while cursor < len(list_of_lists):
-        if len(list_of_lists[cursor]) > 1:
-            yield list_of_lists[cursor][inner_cursor]
+        if type(list_of_lists[cursor]) is list :
+            if type(list_of_lists[cursor][inner_cursor]) is list:
+                for i in list_of_lists[cursor][inner_cursor]:
+                    yield i
+            else:
+                yield  list_of_lists[cursor][inner_cursor]
             inner_cursor += 1
             if len(list_of_lists[cursor]) == inner_cursor:
                 inner_cursor = 0

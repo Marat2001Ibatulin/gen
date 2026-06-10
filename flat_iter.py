@@ -13,7 +13,7 @@ class FlatIterator:
             raise StopIteration
 
         l = len(self.list_of_lists[self.cursor])
-        if l > 1:
+        if type(self.list_of_lists[self.cursor]) is list:
             item = self.list_of_lists[self.cursor][self.inner_cursor]
             self.inner_cursor += 1
             if self.inner_cursor == l:
